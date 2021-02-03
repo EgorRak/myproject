@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>home</title>
+    <style>
+   body {
+    margin: 0, ;
+   }
+   </style>
+</head>
+<body background="http://ilchakov.net.ua/prof/photo/Fon_JJ_34.jpg">
+    <table border="1" bgcolor="#FEFFFF" >
+        {%for client in clients %}
+        {%for transaction in transactions %}
+        {%for account in accounts %}
+        <tr>
+
+            <td bgcolor="green">{{client.birth}}</td>
+            <td bgcolor="green">{{transaction.description}}</td>
+            <td bgcolor="green">{{transaction.amount}}</td>
+            <td bgcolor="green">{{account.name}}</td>
+            <td bgcolor="green">{{client.first_name}}</td>
+
+        </tr>
+        {%endfor%}
+        {%endfor%}
+        {%endfor%}
+</body>
+</html>
