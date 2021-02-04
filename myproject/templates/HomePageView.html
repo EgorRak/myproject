@@ -3,28 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <title>home</title>
-    <style>
-   body {
-    margin: 0, ;
+   <style>
+        table {
+    width: 600px; /* Ширина таблицы */
+    height: 300px;
+
+    border: 1px solid green; /* Рамка вокруг таблицы */
+    margin: auto; /* Выравниваем таблицу по центру окна  */
    }
-   </style>
+   td {
+    text-align: center; /* Выравниваем текст по центру ячейки */
+
+   }
+
+</style>
 </head>
 <body background="http://ilchakov.net.ua/prof/photo/Fon_JJ_34.jpg">
-    <table border="1" bgcolor="#FEFFFF" >
-        {%for client in clients %}
+
+
+
+
+<table border="1"  >
+
+    <tr>
+        <td><b> №</b></td>
+        <td><b> Операция</b></td>
+        <td><b> Дата и время</b></td>
+        <td><b> Сумма</b></td>
+        <td><b> Отправитель</b></td>
+    <td> <b>Получатель</b></td>
+
+    </tr>
         {%for transaction in transactions %}
-        {%for account in accounts %}
-        <tr>
 
-            <td bgcolor="green">{{client.birth}}</td>
-            <td bgcolor="green">{{transaction.description}}</td>
-            <td bgcolor="green">{{transaction.amount}}</td>
-            <td bgcolor="green">{{account.name}}</td>
-            <td bgcolor="green">{{client.first_name}}</td>
+    <tr>
+       <td>{{transaction.id}}</td>
+       <td> {{transaction.description}}</td>
+       <td> {{transaction.created}}</td>
+        <td> {{transaction.amount}}</td>
+        <td> {{transaction.debit_account}}</td>
+       <td> {{transaction.credit_account}}</td>
+    </tr>
+        {%endfor%}
 
-        </tr>
-        {%endfor%}
-        {%endfor%}
-        {%endfor%}
+
+
+    </table>
+
+
+
+
 </body>
 </html>
+
+
+

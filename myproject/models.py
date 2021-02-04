@@ -20,7 +20,7 @@ class Client(models.Model):
         verbose_name_plural = "Clients"
 
     def __str__(self):
-        return f"Client {self.first_name} {self.last_name} {self.birth} {self.identity_code} {self.passport} {self.client_type}"
+        return f" {self.first_name} {self.last_name} "
 
 
 class Account(models.Model):
@@ -29,11 +29,19 @@ class Account(models.Model):
     balance = models.PositiveSmallIntegerField(default=0)
     name = models.CharField(max_length=100)
 
+    class Meta:
+        verbose_name_plural = "Accounts"
+
+
+    def __str__(self):
+        return f"  {self.client} "
 
 class TransactionType(models.Model):
     name = models.CharField(max_length=255)
     code = models.PositiveSmallIntegerField(unique=True)
 
+    def __str__(self):
+        return f"TransactionType {self.name} {self.code}"
 
 class Transaction(models.Model):
     transaction_type = models.ForeignKey("TransactionType", on_delete=models.CASCADE)
@@ -42,3 +50,6 @@ class Transaction(models.Model):
     credit_account = models.ForeignKey('Account', on_delete=models.CASCADE, related_name='candidate_details', null=True, blank=True)
     created = models.DateTimeField(null=True, blank=True)
     description = models.CharField(max_length=255)
+
+    def __str__(self):
+        return f"Transaction {self.transaction_type} {self.amount} {self.debit_account} {self.credit_account}  {self.description}"
