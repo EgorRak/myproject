@@ -17,10 +17,10 @@ from django.contrib import admin
 from django.urls import path
 
 from myproject.views import HomePageView
-
+from myproject.views import EndPointView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home-page/', HomePageView.as_view())
-
+    path('home-page/', HomePageView.as_view()),
+    path('end-point/', EndPointView.as_view())
 ]

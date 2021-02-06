@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EndPoint</title>
+
+</head>
+<body>
+    {%for account in accounts %}
+    <table bgcolor="gray" border="1">
+
+    <tr>
+       <td> Имя : {{account.client.first_name}}   </td>
+       <td> Фамилия : {{account.client.last_name}}   </td>
+       <td> IBAN: {{account.iban}}   </td>
+       <td> Баланс : {{account.balance}}   </td>
+    </tr>
+    </table>
+        {%endfor%}
+</body>
+</html>

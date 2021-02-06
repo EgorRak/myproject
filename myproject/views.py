@@ -23,3 +23,17 @@ class HomePageView(TemplateView):
                 'transactionTypes': transactionTypes,
                 'transactions': transactions
             }
+
+class EndPointView(TemplateView):
+    template_name = 'EndPointView.html'
+    def get_context_data(self, **kwargs):
+        clients = Client.objects.all()
+        accounts = Account.objects.all()
+        transactionTypes = TransactionType.objects.all()
+        transactions = Transaction.objects.all()
+        return {
+            'clients': clients,
+            'accounts': accounts,
+            'transactionTypes': transactionTypes,
+            'transactions': transactions
+        }
